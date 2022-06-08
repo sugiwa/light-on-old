@@ -1,7 +1,15 @@
 <template>
   <v-card class="mx-auto my-12 px-10 py-5" max-width="374">
-    <h2>Log in</h2>
+    <h2>Sign up</h2>
     <v-form ref="form" v-model="valid" lazy-validation>
+      <v-text-field
+        v-model="name"
+        :counter="10"
+        :rules="nameRules"
+        label="Name"
+        required
+      ></v-text-field>
+
       <v-text-field
         v-model="email"
         :rules="emailRules"
@@ -30,19 +38,24 @@
         class="mr-4 mb-5"
         @click="validate"
       >
-        Log in
+        Sign up
       </v-btn>
     </v-form>
 
-    <router-link to="/signin" class="my-5">Sign in</router-link>
+    <router-link to="/login">Log in</router-link>
   </v-card>
 </template>
 
 <script>
 export default {
-  name: "LoginView",
+  name: "SignIn",
   data: () => ({
     valid: true,
+    name: "",
+    nameRules: [
+      (v) => !!v || "Name is required",
+      (v) => (v && v.length <= 10) || "Name must be less than 10 characters",
+    ],
     email: "",
     emailRules: [
       (v) => !!v || "E-mail is required",
