@@ -34,7 +34,7 @@
       </v-btn>
     </v-form>
 
-    <router-link to="/signin" class="my-5">Sign in</router-link>
+    <router-link to="/signin" class="my-5">Create accountt</router-link>
   </v-card>
 </template>
 
@@ -44,21 +44,11 @@ export default {
   data: () => ({
     valid: true,
     email: "",
-    emailRules: [
-      (v) => !!v || "E-mail is required",
-      (v) => /.+@.+\..+/.test(v) || "E-mail must be valid",
-    ],
     password: "",
-    passwordRules: [
-      (v) => !!v || "Password is required",
-      (v) => (v && v.length >= 4) || "Password must be more than 4 characters",
-    ],
-    checkbox: false,
   }),
-
   methods: {
     validate() {
-      this.$refs.form.validate();
+      this.$router.push({ path: "/home" });
     },
   },
 };

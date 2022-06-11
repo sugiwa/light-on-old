@@ -9,12 +9,12 @@
 
       <v-spacer></v-spacer>
 
-      <v-btn text>
-        <router-link to="/login" class="text-decoration-none white--text">
+      <router-link to="/login" class="text-decoration-none white--text">
+        <v-btn text>
           <span class="mr-2">Login</span>
           <v-icon>mdi-account</v-icon>
-        </router-link>
-      </v-btn>
+        </v-btn>
+      </router-link>
     </v-app-bar>
 
     <v-navigation-drawer v-model="drawer" absolute temporary>
@@ -26,9 +26,12 @@
               <v-list-item-title>HOME</v-list-item-title>
             </v-list-item>
           </router-link>
-          <v-list-item>
-            <v-list-item-title>HOME</v-list-item-title>
-          </v-list-item>
+          <router-link to="/idea_form" class="text-decoration-none">
+            <v-list-item>
+              <v-icon>mdi-lightbulb-on-10</v-icon>
+              <v-list-item-title>IDEA</v-list-item-title>
+            </v-list-item>
+          </router-link>
           <v-list-item>
             <v-list-item-title>HOME</v-list-item-title>
           </v-list-item>
@@ -43,8 +46,6 @@
 </template>
 
 <script>
-// import HelloWorld from './components/HelloWorld';
-
 export default {
   name: "App",
 
