@@ -13,7 +13,6 @@
         color="success"
         class="mr-4 mb-5"
         @click="searchIdea"
-        @keydown.enter.prevent
       >
         Search
       </v-btn>
@@ -40,7 +39,6 @@
 export default {
   name: "IdeaForm",
   data: () => ({
-    valid: true,
     idea: "",
     ideaList: [],
   }),

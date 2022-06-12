@@ -6,7 +6,6 @@
         v-model="email"
         :rules="emailRules"
         label="E-mail"
-        required
       ></v-text-field>
 
       <v-text-field
@@ -14,15 +13,7 @@
         :counter="4"
         :rules="passwordRules"
         label="password"
-        required
       ></v-text-field>
-
-      <v-checkbox
-        v-model="checkbox"
-        :rules="[(v) => !!v || 'You must agree to continue!']"
-        label="Do you agree?"
-        required
-      ></v-checkbox>
 
       <v-btn
         :disabled="!valid"
@@ -34,7 +25,7 @@
       </v-btn>
     </v-form>
 
-    <router-link to="/signin" class="my-5">Create accountt</router-link>
+    <router-link to="/signin" class="my-5">Create account</router-link>
   </v-card>
 </template>
 
@@ -44,7 +35,9 @@ export default {
   data: () => ({
     valid: true,
     email: "",
+    emailRules: [(v) => !!v || "E-mail is required"],
     password: "",
+    passwordRules: [(v) => !!v || "Password is required"],
   }),
   methods: {
     validate() {
