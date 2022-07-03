@@ -18,7 +18,7 @@
       </v-btn>
     </v-form>
 
-    <v-list>
+    <v-list class="vList" ref="vList">
       <v-list-item
         v-for="(idea, index) in ideaList"
         :key="index"
@@ -61,6 +61,21 @@ export default {
       console.log(this.ideaList);
       this.$router.push({ path: "/idea_result" });
     },
+    test() {
+      const list = this.$refs.vList.$el;
+      console.log(list.scrollTop);
+    },
+  },
+  mounted() {
+    const list = this.$refs.vList.$el;
+    list.addEventListener("scroll", this.test);
   },
 };
 </script>
+
+<style>
+.vList {
+  height: 300px;
+  overflow: auto;
+}
+</style>
